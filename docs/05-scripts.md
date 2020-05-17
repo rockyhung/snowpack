@@ -37,14 +37,12 @@ If you've ever worked with `package.json` "scripts", creating your own build scr
 Snowpack supports several other script types in addition to the basic `"build"` type. These different script types serve different goals so that you can fully customize and control your dev environment:
 
 - `"build:*": "..."`
-  - Pipe any matching file into this CLI command, and write it's output to disk.
+  - Build matching files for your application. Snowpack will pipe files into the given bash command (CLI) as input, and capture its output as the build result.
   - ex: `"build:js,jsx": "babel --filename $FILE"`
 - `"run:*": "..."`
-  - Run a single command once, log any output/errors.
+  - Run a single bash command once, log any output/errors.
   - Useful for tools like TypeScript that lint multiple files / entire projects at once.
   - ex: `"run:tsc": "tsc"`
-- `"plugin:*": "..."`
-  - Connect a custom Snowpack plugin. See the section below for more info.
 - `"mount:*": "mount DIR [--to PATH]"`
   - Copy a folder directly into the final build at the `--to` URL location.
   - If no `--to` argument is provided, the directory will be hosted at the same relative location.
@@ -89,7 +87,6 @@ You can customize your build scripts even further via the `"::"` script modifier
 Note that `$1` can be used with a script modifier to reference the original script. See the section on [Script Variables](#script-variables) above.
 
 
-
 ### Build Plugins
 
 For a more powerful integration, you can also write build scripts using JavaScript to create *build plugins*. Each plugin is loaded as a JavaScript module that exports a custom `build()` function that gets run on every matching file.
@@ -101,7 +98,7 @@ There are a few reasons you may want to use a build plugin instead of a normal "
 ```js
 "scripts": {
   // Speed: The build plugin is ~10x faster than using the Babel CLI directly
-  "plugin:js,jsx": "@snowpack/plugin-babel",
+  "build:js,jsx": "@snowpack/plugin-babel",
 }
 ```
 
@@ -110,7 +107,7 @@ There are a few reasons you may want to use a build plugin instead of a normal "
 ```js
 "scripts": {
   // Lack of CLI: There is no Svelte CLI. Our plugin taps directly into the Svelte compiler 
-  "plugin:svelte": "@snowpack/plugin-svelte",
+  "build:svelte": "@snowpack/plugin-svelte",
 }
 ```
 
@@ -120,10 +117,12 @@ There are a few reasons you may want to use a build plugin instead of a normal "
 ```js
 "scripts": {
   // Custom Behavior: Feel free to build your own!
-  "plugin:vue": "./my-custom-vue-plugin.js",
+  "build:vue": "./my-custom-vue-plugin.js",
 }
 ```
 
-### Build Plugin API
 
-Coming Soon!
+
+## Plugins
+
+👉 **[Check out our plugin guide.](/extend)**

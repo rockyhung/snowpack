@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dep-a": "./dep-a.js"
-  }
-}

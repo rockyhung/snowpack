@@ -1,5 +1,16 @@
-To create a new issue or search existing discussions, start here:  
-👉 **https://www.pika.dev/packages/snowpack/discuss** 👈
+<!--
+---- ⛔ STOP!
+----
+---- This project supports GitHub's new Discussions feature!
+---- Issues are handled a little bit differently than you might be used to.
+----
+---- ❗️ Don't start by creating a new issue. Instead, create a discussion:
+----   🔎 Search Existing:   https://github.com/snowpackjs/snowpack/discussions
+----   📝 Create New:        https://github.com/snowpackjs/snowpack/discussions/category_choices
+----
+---- More information on how our team manages issues & discussions:
+----   https://github.com/snowpackjs/snowpack/discussions/613#discussioncomment-41103
+--->
 
-All new issues created directly through GitHub will be closed.  
-Learn more: https://www.pika.dev/discussions
+**Original Discussion:** <!-- URL to discussion -->
+**/cc** <!-- @mention everyone from discussion -->
